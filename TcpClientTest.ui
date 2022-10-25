@@ -81,7 +81,7 @@
          <string notr="true">background-color: rgb(85, 255, 0);</string>
         </property>
         <property name="text">
-         <string>发送</string>
+         <string>Send</string>
         </property>
        </widget>
       </item>
