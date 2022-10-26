@@ -1,4 +1,5 @@
-﻿#include "Communication.h"
+﻿#pragma execution_character_set("utf-8")
+#include "Communication.h"
 #include <QDebug>
 
 Communication::Communication(QObject *parent)
@@ -57,10 +58,8 @@ void Communication::openServer()
 	}
 	m_tcpServer = new QTcpServer(this);
 	//辅站监听信号
-	if (m_isLocalHost)
-		m_tcpServer->listen(QHostAddress::LocalHost, m_port);
-	else
-		m_tcpServer->listen(QHostAddress::Any, m_port);
+	m_tcpServer->listen(QHostAddress::Any, m_port);
+		
 	
 	connect(m_tcpServer, &QTcpServer::newConnection, [=]()
 		{
@@ -126,10 +125,7 @@ void Communication::openClient()
 	);
 	//连接辅站
 	//m_tcpSocket->connectToHost(QHostAddress(m_servantIP), m_port);
-	if (m_isLocalHost)
-		m_tcpSocket->connectToHost(QHostAddress::LocalHost, m_port);
-	else
-		m_tcpSocket->connectToHost(QHostAddress(m_servantIP), m_port);
+	m_tcpSocket->connectToHost(QHostAddress(m_servantIP), m_port);	
 	
 	m_tcpSocket->waitForConnected();
 }

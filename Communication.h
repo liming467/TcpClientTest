@@ -54,12 +54,7 @@ public:
 	/*void sendServerMessage(QString str) {
 		m_tcpSocket->write(str.toLocal8Bit(), str.toLocal8Bit().length());
 		m_tcpSocket->flush();
-	}*/
-
-	void setLocalHostStatus(bool isChecked) {
-		m_isLocalHost = isChecked;
-	}
-	
+	}*/	
 
 
 signals:

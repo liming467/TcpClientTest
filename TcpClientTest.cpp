@@ -1,3 +1,4 @@
+#pragma execution_character_set("utf-8")
 #include "TcpClientTest.h"
 #include <QMessageBox>
 
@@ -61,9 +62,6 @@ void TcpClientTest::on_ptn_connect_clicked()
 
 	QString ip = ui.lineEdit_ip->text();
 	int port = ui.lineEdit_port->text().toInt();
-	bool m_isLocalHost = true;
-	m_tcpClient->setLocalHostStatus(m_isLocalHost);
-
 	m_tcpClient->setIpAndPort(port, ip);
 	m_tcpClient->openClient();
 }
